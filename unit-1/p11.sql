@@ -1,0 +1,11 @@
+SET SERVEROUTPUT ON;
+DECLARE
+    v_n NUMBER := 11;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Today: ' || TO_CHAR(SYSDATE, 'Day, DD "th" Month YYYY'));
+    DBMS_OUTPUT.PUT_LINE('After ' || v_n || ' months: ' || TO_CHAR(ADD_MONTHS(SYSDATE, v_n), 'DD-MON-YYYY'));
+    DBMS_OUTPUT.PUT_LINE('Last Day of Month: ' || TO_CHAR(LAST_DAY(SYSDATE), 'DD-MON-YYYY'));
+    DBMS_OUTPUT.PUT_LINE('Next Monday: ' || TO_CHAR(NEXT_DAY(SYSDATE, 'MONDAY'), 'DD-MON-YYYY'));
+    DBMS_OUTPUT.PUT_LINE('Days left in month: ' || TRUNC(LAST_DAY(SYSDATE) - SYSDATE));
+END;
+/
